@@ -28,9 +28,9 @@ class Player {
     }
  
     // This function draws the player on the screen.
-    draw() {
+    draw(playerImage) {
         let pos = gBoard[this.position];
-        image(this.image, pos.x, pos.y,60,60);
+        image(playerImage, pos.x, pos.y,60,60);
         imageMode(CORNER)
 
         

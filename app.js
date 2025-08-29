@@ -286,7 +286,7 @@ function drawGameplayScreen() {
   drawboard();
   drawSnakesAndLadders();
   if (player ) {
-    player.draw();
+    player.draw(userImage);
   }
   if (dice) {
     dice.draw();
