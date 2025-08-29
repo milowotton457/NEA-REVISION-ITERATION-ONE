@@ -82,7 +82,7 @@ function setup() {
     {
       question: "What is 2 + 2?",
       answers: ['3', '4', '5'],
-      correctAnswer: '45'
+      correctAnswer: '4'
     },
     {
       question: "what is 5 * 9",
@@ -423,7 +423,7 @@ function checkAnswer(answer) {
     answerIncor++
   }
   questionShown = false;
-  ansResultTimer = 130; 
+  ansResultTimer = 60; 
 }
 
 function drawGameOverScreen(){
