@@ -285,10 +285,10 @@ function drawGameplayScreen() {
  // creates game board
   drawboard();
   drawSnakesAndLadders();
-  if (player !== true) {
+  if (player ) {
     player.draw();
   }
-  if (dice !== true) {
+  if (dice) {
     dice.draw();
   }
 
