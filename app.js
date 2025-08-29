@@ -32,6 +32,7 @@ let defsButton
 let homeButton
 
 let questionType;
+let selectedSubject;
 
 let xCoord;
 let yCoord;
@@ -78,7 +79,7 @@ function setup() {
   dice = new Dice(800,550,100);
 
   // Define the questions
-  questionMath = [
+  examquestionMath = [
     {
       question: "What is 2 + 2?",
       answers: ['3', '4', '5'],
@@ -90,6 +91,20 @@ function setup() {
       correctAnswer: '45'
     }
   ];
+
+defquestionMath = [
+    {
+      question: "What is 3 + 3?",
+      answers: ['3', '4', '6'],
+      correctAnswer: '6'
+    },
+    {
+      question: "what is 5 * 10",
+      answers: ['45', '63', '50'],
+      correctAnswer: '50'
+    }
+  ];
+
 
   questionCompSci = [
     {
@@ -204,15 +219,15 @@ function drawHomeScreen() {
   // When a button is pressed, change the screen to the topic selection screen but also make the subject the set of questions
   function econQuestType(){
     currentScreen = ScreenTransitions.TOPICSELECTION;
-    questions = questionEcon;
+    selectedSubject = "Econ";
   };
   function compSciQuestType() {
     currentScreen = ScreenTransitions.TOPICSELECTION;
-    questions = questionCompSci;
+    selectedSubject = "CompSci";
   };
   function mathQestType() {;
     currentScreen = ScreenTransitions.TOPICSELECTION;
-    questions = questionMath;
+    selectedSubject = "Math";
   };
   
   mathsButton.mousePressed(mathQestType);
@@ -247,11 +262,25 @@ function drawTopicSelectionScreen() {
   function examQests() {
     console.log("Exam Questions button pressed");
     removeElements();
+    if (selectedSubject === "Math") {
+      questions = examquestionMath;
+    } else if (selectedSubject === "CompSci") {
+      questions = questionCompSci;
+    } else if (selectedSubject === "Econ") {
+      questions = questionEcon;
+    }
     currentScreen = ScreenTransitions.GAMEPLAY;
   };
   function defsQuests() {
     console.log("Definitions button pressed");
     removeElements();
+    if (selectedSubject === "Math") {
+      questions = defquestionMath;
+    } else if (selectedSubject === "CompSci") {
+      questions = questionCompSci;
+    } else if (selectedSubject === "Econ") {
+      questions = questionEcon;
+    }
     currentScreen = ScreenTransitions.GAMEPLAY;
   };
 
